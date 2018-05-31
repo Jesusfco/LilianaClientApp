@@ -1,0 +1,26 @@
+app-navegation {
+    margin-top: 40px;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+
+.loader img {
+    display: block;
+    width: 250px;
+}
+
+@media screen and (max-width: 600px) {
+    .loader img {
+        width: 37%
+    }
+}
