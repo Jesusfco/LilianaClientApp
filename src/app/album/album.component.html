@@ -18,4 +18,32 @@
 </div>
 
 
+<div class="floatOptions">
+
+    <div class="moreOptions">
+
+        <button id="cancelButton">
+            <i class="material-icons">save</i>
+            <span>Guardar Selección</span>
+        </button>
+
+
+        <button [routerLink]="['/inventory/search-parameters']" id="searchButton">
+            <i class="material-icons">assignment_turned_in</i>
+            <span>Ver Fotos Seleccionadas</span>
+        </button>
+
+        <button [routerLink]="['/inventory/create']" id="sellButton">
+            <i class="material-icons">photo_library</i>
+            <span>Ver Todas las Fotos</span>
+        </button>
+
+    </div>
+
+    <button class="floatOptionPrincipal">
+        <i class="material-icons">settings</i>
+    </button>
+
+</div>
+
 <router-outlet></router-outlet>

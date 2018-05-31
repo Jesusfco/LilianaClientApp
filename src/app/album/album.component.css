@@ -42,4 +42,114 @@
     bottom: 0;
     left: 0;
     padding: 5px;
+    padding: 10px;
+    font-size: 50px;
+    z-index: 25;
+}
+
+@media screen and (max-width: 1000px) {
+    .photoElement {
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .photoElement {
+        width: 50%;
+    }
+    .counter {
+        font-size: 30px;
+    }
+}
+
+.floatOptions {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    /* overflow: hidden; */
+}
+
+.floatOptions button {
+    border-radius: 50%;
+    border: none;
+    padding: 15px;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+.floatOptionPrincipal i {
+    font-size: 45px;
+}
+
+.floatOptions:hover .moreOptions {
+    opacity: 1;
+    transform: translateY(0);
+    margin-bottom: 12px;
+    margin: 0 auto 12px auto;
+}
+
+.moreOptions i {
+    font-size: 50px;
+    color: white;
+}
+
+.moreOptions button span {
+    position: absolute;
+    opacity: 5;
+    transition: .4s;
+    margin-left: -0210px;
+    background: #373737cf;
+    padding: 8px;
+    font-size: 20px;
+    color: white;
+    border-radius: 4px;
+    margin-top: -55px;
+    width: 150px;
+}
+
+.moreOptions button:hover span {
+    opacity: 1;
+}
+
+.floatOptionPrincipal:focus .moreOptions {
+    opacity: 1;
+    margin: 0;
+    transform: translateY(0);
+}
+
+.floatOptionPrincipal {
+    background: #ff0057;
+    color: white;
+    bottom: 0px;
+    right: 0px;
+    /* height: 45px; */
+}
+
+.moreOptions {
+    /* width: 50px; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 55px;
+    margin-bottom: 10px;
+    transition: .5s;
+    opacity: 0;
+    margin-bottom: -150px;
+    /* transform: translateY(80%); */
+}
+
+.moreOptions button {
+    /* margin-bottom: 5px; */
+    transform: scale(.7);
+    margin-bottom: -10px;
+}
+
+#cancelButton {
+    background: #c62828;
+}
+
+#searchButton {
+    background: #4caf50;
+}
+
+#sellButton {
+    background: #039be5;
 }

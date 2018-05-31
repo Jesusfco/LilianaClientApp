@@ -7,7 +7,7 @@ export class AlbumPhotoClients {
     public select: Boolean;
     public order: number;
 
-    // 'https://cdn.dribbble.com/users/43718/screenshots/1137881/loadinganimation2.gif'
+    // 0'https://cdn.dribbble.com/users/43718/screenshots/1137881/loadinganimation2.gif'
     public basicPath: String;
     public basicPath2: String;
 
@@ -42,7 +42,7 @@ export class AlbumPhotoClients {
     setPath(){
 
         let p: Url = new Url();
-        this.basicPath = p.basicUrl + 'images/aplication/clients/app/' + this.path;
+        this.basicPath = p.basicUrl + 'images/aplication/clients/mov/' + this.path;
         this.basicPath2 = p.basicUrl + 'images/aplication/clients/mov/' + this.path;
 
     }
