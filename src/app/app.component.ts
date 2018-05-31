@@ -112,7 +112,7 @@ export class AppComponent {
 
       error =>  {
 
-        localStorage.setItem('request', JSON.stringify(error));
+        sessionStorage.setItem('request', JSON.stringify(error));
         localStorage.removeItem('token');
         this.router.navigate(['/login']);
 

@@ -1,4 +1,5 @@
 import { Url } from './url';
+import { AlbumPhotoClients } from './album-photo-clients';
 
 export class AlbumClients {
 
@@ -6,13 +7,15 @@ export class AlbumClients {
     public client_id: number;
     public name: String;
     public img: String;
-    public disponible: Number;
+    public disponible: number;
     public date: String;
     public created_at: String;
     public updated_at: String;
 
     public photoPath: String;
     public photoPath2: String;
+
+    public photos: Array<AlbumPhotoClients> = [];
 
     constructor() {
 
@@ -26,7 +29,7 @@ export class AlbumClients {
     }
 
     setData(data) {
-        
+
         this.id = parseInt(data.id);
         this.client_id = parseInt(data.client_id);
         this.name = data.name;
@@ -35,6 +38,20 @@ export class AlbumClients {
         this.date = data.date;
 
         this.setPhotoPath();
+
+    }
+
+    setPhotosData(data) {
+
+        this.photos = [];
+
+        for(let d of data) {
+
+            let pho: AlbumPhotoClients = new AlbumPhotoClients();
+            pho.setFromData(d);
+            this.photos.push(pho);
+
+        }
 
     }
 }

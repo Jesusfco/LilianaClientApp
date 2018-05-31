@@ -6,7 +6,7 @@
     <div class="albunes">
 
         <div id="album" *ngFor="let n of albums">
-            <a [routerLink]="['./album', n.id]">
+            <a [routerLink]="['../album', n.id]">
                 <img src="{{ n.photoPath2}}">
                 <h4>{{n.name}}</h4>
             </a>

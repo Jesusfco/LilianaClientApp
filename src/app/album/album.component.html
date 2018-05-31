@@ -1,9 +1,9 @@
 <div class="photoContainer">
 
-    <div *ngFor="let pho of photos" class="photoElement">
+    <div *ngFor="let pho of album.photos" class="photoElement">
 
-        <div class="photo" id="photo{{ pho.id }}">
-            <!-- {{ pho.basicPath }} -->
+        <div class="photo" id="photo{{ pho.id }}" [routerLink]="['show', pho.id]">
+
         </div>
 
         <i class="material-icons" *ngIf="!pho.select" (click)="likePhoto(pho)">favorite_border</i>
@@ -12,3 +12,10 @@
     </div>
 
 </div>
+
+<div class="counter">
+    {{ photoLikesCount() }} / {{ album.disponible}}
+</div>
+
+
+<router-outlet></router-outlet>

@@ -24,8 +24,8 @@ export class NotificationComponent implements OnInit {
 
   checkStorage(){
 
-    let request = localStorage.getItem('request');
-    localStorage.removeItem('request');
+    let request = sessionStorage.getItem('request');
+    sessionStorage.removeItem('request');
 
     if(request == undefined) return;
 

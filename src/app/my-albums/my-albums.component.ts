@@ -37,7 +37,7 @@ export class MyAlbumsComponent implements OnInit {
 
       },
 
-      error => localStorage.setItem('request', JSON.stringify(error))
+      error => sessionStorage.setItem('request', JSON.stringify(error))
 
     ).then(
       () => this.request = false

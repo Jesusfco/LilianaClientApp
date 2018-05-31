@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         this.storage.storageUserData(data.user);
         this.user.storageData(data.user);
         this.router.navigate(['/myAlbums']);
-        localStorage.setItem('login', '1');
+        sessionStorage.setItem('login', '1');
       },
       error => {
 
