@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Storage } from '../storage';
-
+import { User } from '../user';
 import { UserService } from '../user.service';
+import { useAnimation } from '@angular/animations';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +12,6 @@ import { UserService } from '../user.service';
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild('focus') private elementRef: ElementRef;
-  
-  @Output() login = new EventEmitter();
-
-  public ngAfterViewInit(): void {
-    this.elementRef.nativeElement.focus();
-  }
 
   public data: any = {
     email: '',
@@ -31,14 +25,15 @@ export class LoginComponent implements OnInit {
     form: true,
   };
 
-  sendingData: boolean = false;
+  public sendingData: Boolean = false;
 
-  storage: Storage =  new Storage();
+  public storage: Storage =  new Storage();
+  public user: User = new User();
 
   constructor(private _http:  UserService, private router: Router) { }
 
   ngOnInit() {
-    this.ngAfterViewInit();
+    
   }
   accesar() {
 
@@ -48,12 +43,15 @@ export class LoginComponent implements OnInit {
 
     if(this.form.form == false)  return; 
 
+    console.log('accesando')
     this.sendingData = true;
 
     this._http.login(this.data).then(
       data => {
+        console.log(data)
         this.storage.storageToken(data.token);
         this.storage.storageUserData(data.user);
+        this.user.storageData(data.user);
         this.router.navigate(['/myAlbums']);
         localStorage.setItem('login', '1');
       },

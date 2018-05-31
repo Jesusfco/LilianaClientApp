@@ -1,0 +1,14 @@
+<div class="photoContainer">
+
+    <div *ngFor="let pho of photos" class="photoElement">
+
+        <div class="photo" id="photo{{ pho.id }}">
+            <!-- {{ pho.basicPath }} -->
+        </div>
+
+        <i class="material-icons" *ngIf="!pho.select" (click)="likePhoto(pho)">favorite_border</i>
+        <i class="material-icons active" *ngIf="pho.select" (click)="likePhoto(pho)">favorite</i>
+
+    </div>
+
+</div>

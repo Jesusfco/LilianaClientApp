@@ -1,8 +1,16 @@
 export class Url {
     public url: string;
 
+    public basicUrl: String;
+
     constructor() {
-        this.url = "http://www.lilianapineda.com/api/";
-        this.url = "http://localhost:8000/api/";
+        this.basicUrl = "http://www.lilianapineda.com/";
+        this.basicUrl = "http://localhost:8000/";
+
+        this.setUrl();
+    }
+
+    setUrl() {
+        this.url = this.basicUrl + 'api/';
     }
 }

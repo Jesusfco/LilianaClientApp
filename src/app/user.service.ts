@@ -28,4 +28,26 @@ export class UserService {
 
   }
 
+  getAlbums() { 
+
+    return this._http.get(this.link.url + 'albums' + this.token.getTokenUrl())
+            .map(data => data.json())
+            .toPromise();
+
+  }
+
+  getPhotos(id) {
+    return this._http.get(this.link.url + 'album/' + id + this.token.getTokenUrl())
+            .map(data => data.json())
+            .toPromise();
+  }
+
+  storeSelection(photos) {
+    
+    return this._http.post(this.link.url + 'album/storeSelection' + this.token.getTokenUrl(), photos)
+            .map(data => data.json())
+            .toPromise();
+
+  }
+
 }

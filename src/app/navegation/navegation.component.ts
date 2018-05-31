@@ -75,6 +75,9 @@ export class NavegationComponent implements OnInit {
         this.statePanel = 'initial';
       }
 
+      this.stateMenu = "final";
+        this.statePanel = 'final';
+
     }
 
     cerrarSesion(){
