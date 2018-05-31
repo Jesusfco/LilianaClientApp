@@ -7,7 +7,8 @@ export class AlbumClients {
     public client_id: number;
     public name: String;
     public img: String;
-    public disponible: number;
+    public disponible: number = 0;
+    public selected: number;
     public date: String;
     public created_at: String;
     public updated_at: String;
@@ -18,7 +19,7 @@ export class AlbumClients {
     public photos: Array<AlbumPhotoClients> = [];
 
     constructor() {
-
+        this.selected = 0;
     }
 
 
@@ -26,6 +27,20 @@ export class AlbumClients {
         let n: Url = new Url();
         this.photoPath = n.basicUrl + 'images/aplication/clients/principal_' + this.img;
         this.photoPath2 = n.basicUrl + 'images/aplication/clients/secundaria_' + this.img;
+    }
+
+    countSelectedPhoto() {
+
+        let count = 0 ;
+    
+        for(let p of this.photos){
+            if(p.select == true){ 
+                count++;
+            }
+        }
+
+        return count;
+
     }
 
     setData(data) {
@@ -50,6 +65,25 @@ export class AlbumClients {
             let pho: AlbumPhotoClients = new AlbumPhotoClients();
             pho.setFromData(d);
             this.photos.push(pho);
+
+        }
+
+    }
+
+    setPhotosDataLike(data) {
+
+        this.photos = [];
+
+        for(let d of data) {
+            
+            if(d.select == true) {
+
+                let pho: AlbumPhotoClients = new AlbumPhotoClients();
+                pho.setFromData(d);
+                this.photos.push(pho);
+
+            }
+            
 
         }
 

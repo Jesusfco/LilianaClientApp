@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { MyAlbumsComponent } from './my-albums/my-albums.component';
 import { AlbumComponent } from './album/album.component';
 import { PhotoViewComponent } from './photo-view/photo-view.component';
+import { SelectedPhotosComponent } from './selected-photos/selected-photos.component';
+import { ConfirmSelectedComponent } from './confirm-selected/confirm-selected.component';
 
 export const routes: Routes = [
     
@@ -17,6 +19,8 @@ export const routes: Routes = [
     { path: 'album/:id', component: AlbumComponent, 
         children: [
             { path: 'show/:id', component: PhotoViewComponent },
+            { path: 'selected', component: SelectedPhotosComponent },
+            { path: 'confirm', component: ConfirmSelectedComponent },
 
         ] 
     },

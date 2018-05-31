@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { AlbumClients } from '../album-clients';
-import  {AlbumPhotoClients } from '../album-photo-clients';
+import { AlbumPhotoClients } from '../album-photo-clients';
 
 @Component({
   selector: 'app-album',
@@ -40,6 +40,10 @@ export class AlbumComponent implements OnInit {
     this.photoChangeObserver = setInterval(() => this.photoChanguingObserverLogic(), 200);
   }
 
+  refreshStorageAlbum() {
+    sessionStorage.setItem('album', JSON.stringify(this.album));
+  }
+
   photoChanguingObserverLogic() {
     if(sessionStorage.getItem('photoChange') == undefined) return;
 
@@ -54,6 +58,8 @@ export class AlbumComponent implements OnInit {
       }
 
     }
+
+    this.refreshStorageAlbum();
 
     sessionStorage.removeItem('photoChange');
 
@@ -104,21 +110,8 @@ export class AlbumComponent implements OnInit {
   likePhoto(photo) {
     // console.log(photo
     photo.select = !photo.select;
+    this.refreshStorageAlbum();
     
-  }
-
-  photoLikesCount() {
-
-    let count = 0 ;
-    
-    for(let p of this.album.photos){
-      if(p.select == true){ 
-        count++;
-      }
-    }
-
-    return count;
-
   }
 
 }

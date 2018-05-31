@@ -18,6 +18,8 @@ import { NotificationComponent } from './notification/notification.component';
 import { MyAlbumsComponent } from './my-albums/my-albums.component';
 import { AlbumComponent } from './album/album.component';
 import { PhotoViewComponent } from './photo-view/photo-view.component';
+import { SelectedPhotosComponent } from './selected-photos/selected-photos.component';
+import { ConfirmSelectedComponent } from './confirm-selected/confirm-selected.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { PhotoViewComponent } from './photo-view/photo-view.component';
     MyAlbumsComponent,
     AlbumComponent,
     PhotoViewComponent,
+    SelectedPhotosComponent,
+    ConfirmSelectedComponent,
   ],
   imports: [
     BrowserModule,
