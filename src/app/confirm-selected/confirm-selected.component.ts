@@ -22,8 +22,6 @@ export class ConfirmSelectedComponent implements OnInit {
   public album: AlbumClients =  new AlbumClients();
 
   @HostListener('document:keyup', ['$event']) sss($event) {
-    
-    
 
     if($event.keyCode === 27) {
       this.closePop();
@@ -31,7 +29,10 @@ export class ConfirmSelectedComponent implements OnInit {
 
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) { 
+
+    this.setAlbumPhotosObserver();
+  }
 
   ngOnInit() {
 
@@ -50,6 +51,18 @@ export class ConfirmSelectedComponent implements OnInit {
     if(sessionStorage.getItem('album') == undefined) return;
 
     this.album = JSON.parse(sessionStorage.getItem('album'));
+    // this.album.setSelectedPhotos();
+    let count = 0 ;
+    
+    for(let p of this.album.photos){
+
+        if(p.select == true) { 
+            count++;
+        }
+    }
+
+    this.album.selected = count;
+
     clearInterval(this.albumPhotosObserver);
 
   }
@@ -58,7 +71,7 @@ export class ConfirmSelectedComponent implements OnInit {
   closePop(){
 
     setTimeout(() => {
-      this.router.navigate(['./album/' + this.album.id ]);
+      this.router.navigate(['/album/' + this.album.id ]);
     }, 450);
 
     this.state.background = 'initial';

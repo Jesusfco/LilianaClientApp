@@ -8,7 +8,7 @@ export class AlbumClients {
     public name: String;
     public img: String;
     public disponible: number = 0;
-    public selected: number;
+    public selected: number = 0;
     public date: String;
     public created_at: String;
     public updated_at: String;
@@ -27,6 +27,20 @@ export class AlbumClients {
         let n: Url = new Url();
         this.photoPath = n.basicUrl + 'images/aplication/clients/principal_' + this.img;
         this.photoPath2 = n.basicUrl + 'images/aplication/clients/secundaria_' + this.img;
+    }
+
+    setSelectedPhotos() {
+
+        let count = 0 ;
+    
+        for(let p of this.photos){
+
+            if(p.select == true) { 
+                count++;
+            }
+        }
+
+        this.selected = count;
     }
 
     countSelectedPhoto() {
