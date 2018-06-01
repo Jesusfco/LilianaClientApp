@@ -299,6 +299,7 @@ export class PhotoViewComponent implements OnInit {
 
       if(pho.id == this.photo.id) {
         this.photo.setFromData(pho);
+        this.photo.setPath(this.album.id);
         exist = true;
         this.getBeforeAfterProduct();
         break;

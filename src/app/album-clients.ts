@@ -26,8 +26,8 @@ export class AlbumClients {
 
     setPhotoPath() {
         let n: Url = new Url();
-        this.photoPath = n.basicUrl + 'images/aplication/clients/principal_' + this.img;
-        this.photoPath2 = n.basicUrl + 'images/aplication/clients/secundaria_' + this.img;
+        this.photoPath = n.basicUrl + 'images/aplication/clients/' +  this.id + '/principal_' + this.img;
+        this.photoPath2 = n.basicUrl + 'images/aplication/clients/' +  this.id + '/secundaria_' + this.img;
     }
 
     setSelectedPhotos() {
@@ -80,6 +80,7 @@ export class AlbumClients {
 
             let pho: AlbumPhotoClients = new AlbumPhotoClients();
             pho.setFromData(d);
+            pho.setPath(this.id);
             this.photos.push(pho);
 
         }

@@ -23,8 +23,6 @@ export class AlbumPhotoClients {
         if(parseInt(data.select) == 1 || data.select == true)
             this.select = true;
         this.order = parseFloat(data.order);
-
-        this.setPath();
     }
 
     getPhotosStorage() {
@@ -39,11 +37,11 @@ export class AlbumPhotoClients {
         return photos;
     }
 
-    setPath(){
+    setPath(id){
 
         let p: Url = new Url();
-        this.basicPath = p.basicUrl + 'images/aplication/clients/mov/' + this.path;
-        this.basicPath2 = p.basicUrl + 'images/aplication/clients/mov/' + this.path;
+        this.basicPath = p.basicUrl + 'images/aplication/clients/' + id + '/mov/' + this.path;
+        this.basicPath2 = p.basicUrl + 'images/aplication/clients/' + id + '/mov/' + this.path;
 
     }
 }
