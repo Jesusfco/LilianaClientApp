@@ -71,6 +71,9 @@
     }
 }
 
+
+/* stilo de botones */
+
 .floatOptions {
     position: fixed;
     bottom: 15px;
@@ -85,25 +88,40 @@
     box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
 }
 
+.floatOptionPrincipal {
+    background: #7f2061;
+    color: white;
+    bottom: 0px;
+    right: 0px;
+    /* height: 45px; */
+    z-index: 3;
+}
+
 .floatOptionPrincipal i {
     font-size: 45px;
 }
 
-.floatOptions:hover .moreOptions {
-    opacity: 1;
-    transform: translateY(0);
-    margin-bottom: 12px;
-    margin: 0 auto 12px auto;
+.moreOptions {
+    display: flex;
+    flex-wrap: wrap;
+    width: 55px;
+    transition: .5s;
+    opacity: 0;
+    transform: translateY(200%);
+    margin-left: 10px;
+    z-index: 1;
+    justify-content: space-around;
+    align-content: center;
 }
 
 .moreOptions i {
-    font-size: 50px;
+    font-size: 30px;
     color: white;
 }
 
 .moreOptions button span {
     position: absolute;
-    opacity: 5;
+    opacity: 0;
     transition: .4s;
     margin-left: -0210px;
     background: #373737cf;
@@ -115,6 +133,17 @@
     width: 150px;
 }
 
+.moreOptions button {
+    /* transform: scale(.7); */
+    margin: 0 auto 10px 10px;
+    font-size: 30px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+/* INTERACTIVIDAD CON FOCUS EN MAS OPCIONES */
+
 .moreOptions button:hover span {
     opacity: 1;
 }
@@ -122,41 +151,23 @@
 .floatOptionPrincipal:focus .moreOptions {
     opacity: 1;
     margin: 0;
+    margin-left: 5px;
     transform: translateY(0);
 }
 
-.floatOptionPrincipal {
-    background: #ff0057;
-    color: white;
-    bottom: 0px;
-    right: 0px;
-    /* height: 45px; */
-}
-
-.moreOptions {
-    /* width: 50px; */
-    display: flex;
-    flex-wrap: wrap;
-    width: 55px;
-    margin-bottom: 10px;
-    transition: .5s;
-    opacity: 0;
-    margin-bottom: -150px;
-    /* transform: translateY(80%); */
-}
-
-.moreOptions button {
-    /* margin-bottom: 5px; */
-    transform: scale(.7);
-    margin-bottom: -10px;
+.floatOptions:hover .moreOptions {
+    opacity: 1;
+    margin: 0;
+    margin-left: 5px;
+    transform: translateY(0);
 }
 
 #cancelButton {
-    background: #c62828;
+    background: #009ce0;
 }
 
 #searchButton {
-    background: #4caf50;
+    background: #f06b02;
 }
 
 #sellButton {
