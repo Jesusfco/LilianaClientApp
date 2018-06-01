@@ -43,12 +43,12 @@ export class LoginComponent implements OnInit {
 
     if(this.form.form == false)  return; 
 
-    console.log('accesando')
+    
     this.sendingData = true;
 
     this._http.login(this.data).then(
       data => {
-        console.log(data)
+
         this.storage.storageToken(data.token);
         this.storage.storageUserData(data.user);
         this.user.storageData(data.user);
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
         if(error.status == 401) {
           this.form.credentials = 1;
         }
-        
+        sessionStorage.setItem('request', JSON.stringify(error));
         console.log(error);
       }
     ).then(

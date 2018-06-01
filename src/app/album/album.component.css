@@ -109,11 +109,12 @@
     width: 55px;
     transition: .5s;
     opacity: 0;
-    transform: translateY(200%);
+    /* transform: translateY(200%); */
     margin-left: 10px;
     z-index: 1;
     justify-content: space-around;
     align-content: center;
+    position: absolute
 }
 
 .moreOptions i {
@@ -154,14 +155,14 @@
     opacity: 1;
     margin: 0;
     margin-left: 5px;
-    transform: translateY(0);
+    transform: translateY(-100%);
 }
 
 .floatOptions:hover .moreOptions {
     opacity: 1;
     margin: 0;
     margin-left: 5px;
-    transform: translateY(0);
+    transform: translateY(-100%);
 }
 
 #cancelButton {
