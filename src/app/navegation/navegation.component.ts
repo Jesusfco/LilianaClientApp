@@ -2,6 +2,7 @@
 import { trigger, state, style, transition, animate, keyframes} from '@angular/animations';
 import { Storage } from '../storage';
 import { Router } from '@angular/router';
+import { Url } from '../url';
 // import { animations } from '../animations';
 
 @Component({
@@ -44,12 +45,15 @@ export class NavegationComponent implements OnInit {
     statePanel: string;
 
     userData: Storage = new Storage();
+    public url: Url = new Url();
 
     view: any = {
       inventario: true,
       caja: false,
       puntoVenta: false,
     }
+
+    public menuBoolean: Boolean = false;
 
     constructor( private router: Router) { }            
 
@@ -97,6 +101,48 @@ export class NavegationComponent implements OnInit {
     redirect(url) {
       this.closeNavMov();
       this.router.navigate([url]);
+    }
+
+    menuAction() {
+      
+
+      if(this.menuBoolean == false) {
+        this.menuBoolean = true;
+
+        let b1 = document.getElementById('bodyMove1');
+        let b2 = document.getElementById('bodyMove2');
+        let b3 = document.getElementById('shadowMenu');
+
+        b1.classList.add('bodyMove');
+        b2.classList.add('bodyMove');
+        b3.classList.add('display');
+
+        b1.classList.add('active');
+        b2.classList.add('active');
+
+        setTimeout(() => {
+          b3.classList.add('active');
+        }, 1);
+        
+
+      } else {
+        this.menuBoolean = false;
+
+        let b1 = document.getElementById('bodyMove1');
+        let b2 = document.getElementById('bodyMove2');
+        let b3 = document.getElementById('shadowMenu');
+
+        b1.classList.remove('active');
+        b2.classList.remove('active');
+        b3.classList.remove('active');
+
+        setTimeout(() => {
+          b1.classList.remove('bodyMove');
+          b2.classList.remove('bodyMove');
+          b3.classList.remove('display');
+        }, 700);
+        
+      }
     }
 
     

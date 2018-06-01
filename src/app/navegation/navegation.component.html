@@ -1,4 +1,8 @@
-﻿<nav class="nav">
+﻿<!-- [ngClass]="{ 'active': menuBoolean }" -->
+
+<div class="shadow" id="shadowMenu" (click)="menuAction()"></div>
+
+<nav class="nav bodyMove" id="bodyMove1">
 
     <div class="logo lines">
         <img src="http://www.lilianapineda.com/images/logo/header.png">
@@ -15,9 +19,37 @@
         </div>
 
     </div>
+
+    <div class="menuIcon lines" (click)="menuAction()">
+        <i class="material-icons">menu</i>
+    </div>
     <!-- <button (click)='sideNav()'>Menu</button> -->
 
 </nav>
+
+
+<div class="menuPhone">
+    <img class="logoPrincipal" src="http://www.lilianapineda.com/loader/loader3.png">
+
+    <div class="moveLinks">
+        <a [routerLink]="['./myAlbums']" (click)="menuAction()">
+            <p>Mis Albumes</p>
+        </a>
+
+        <a (click)="cerrarSesion()">
+            <p (click)="menuAction()">Cerrar Sesión</p>
+        </a>
+
+        <a href="{{url.basicUrl}}" (click)="menuAction()">
+            <p>Regresar a la pagina</p>
+        </a>
+    </div>
+
+    <img class="logoBottom" src="http://www.lilianapineda.com/images/logo/rueda.png">
+</div>
+
+
+
 
 
 <div class="sideNav" [@menu]='stateMenu'>
@@ -42,7 +74,7 @@
 </div>
 
 <!-- <div class="principal" [@space]="statePanel"> -->
-<div class="principalCard">
+<div class="principalCard" id="bodyMove2">
 
     <router-outlet></router-outlet>
 

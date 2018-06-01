@@ -1,6 +1,8 @@
 .photoContainer {
     display: flex;
     flex-flow: row wrap;
+    max-height: 100vh;
+    overflow-y: scroll;
 }
 
 .photoElement {

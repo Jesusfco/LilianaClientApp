@@ -37,6 +37,10 @@
     cursor: pointer;
 }
 
+.menuIcon {
+    display: none;
+}
+
 .links div {
     height: 100%;
 }
@@ -75,9 +79,14 @@
     text-decoration: none;
 }
 
-nav button {
-    z-index: 4;
-    display: block;
+@media screen and (max-width: 750px) {
+    .nav .links {
+        display: none;
+    }
+    .nav .menuIcon {
+        display: block;
+        padding: 10px;
+    }
 }
 
 #userName {
@@ -229,4 +238,71 @@ userTypeInf {
     .movilView {
         display: initial;
     }
+}
+
+.bodyMove {
+    transition: .7s ease;
+    transform: translateX(0);
+}
+
+.bodyMove.active {
+    transform: translateX(-250px);
+}
+
+.shadow {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: black;
+    opacity: 0;
+    transition: .7s ease;
+    transform: translateX(0);
+    z-index: 20;
+}
+
+.shadow.display {
+    display: block;
+}
+
+.shadow.active {
+    opacity: .6;
+    transform: translateX(-250px);
+}
+
+.menuPhone {
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #1b1c1d;
+    height: 100vh;
+    width: 250px
+}
+
+.menuPhone * {
+    color: white;
+}
+
+.menuPhone .logoPrincipal {
+    width: 88%;
+    display: block;
+    margin: 0 auto;
+}
+
+.menuPhone .logoBottom {
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+.menuPhone a {
+    border-bottom: 1px solid #4c4b4b;
+    text-decoration: none;
+    padding: 0 20px;
+    display: block;
+    margin: 12px 0;
 }
