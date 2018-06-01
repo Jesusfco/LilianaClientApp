@@ -18,6 +18,7 @@ export class SelectedPhotosComponent implements OnInit {
   constructor() {
     let photos = JSON.parse(sessionStorage.getItem('album'));
     this.album.setPhotosDataLike(photos.photos);
+    console.log(this.album);
 
     setTimeout(() => {
 

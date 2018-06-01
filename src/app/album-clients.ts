@@ -96,6 +96,7 @@ export class AlbumClients {
 
                 let pho: AlbumPhotoClients = new AlbumPhotoClients();
                 pho.setFromData(d);
+                pho.select = true;
                 this.photos.push(pho);
 
             }
