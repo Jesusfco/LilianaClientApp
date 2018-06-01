@@ -114,7 +114,8 @@
     z-index: 1;
     justify-content: space-around;
     align-content: center;
-    position: absolute
+    position: absolute;
+    margin-top: 50px;
 }
 
 .moreOptions i {
