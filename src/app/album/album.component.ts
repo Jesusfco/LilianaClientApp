@@ -17,6 +17,7 @@ export class AlbumComponent implements OnInit {
   public album: AlbumClients = new AlbumClients();
   public request: Boolean = false;
   public photoChangeObserver: any;
+  public albumSavedObserver: any;
 
   constructor(private _http: UserService,
     private router: Router,
@@ -38,6 +39,10 @@ export class AlbumComponent implements OnInit {
 
   setPhotoChangingObserver() {
     this.photoChangeObserver = setInterval(() => this.photoChanguingObserverLogic(), 200);
+  }
+
+  setAlbumSavedObserver() {
+    this.photoChangeObserver = setInterval(() => this.albumSavedLogic(), 1000);
   }
 
   refreshStorageAlbum() {
@@ -63,6 +68,14 @@ export class AlbumComponent implements OnInit {
 
     sessionStorage.removeItem('photoChange');
 
+  }
+
+  albumSavedLogic() {
+    if(sessionStorage.getItem('albumSaved') == undefined) return;
+
+    this.album.status = 2;
+    this.refreshStorageAlbum();
+    sessionStorage.removeItem('albumSaved');
   }
 
   getPhotos() {

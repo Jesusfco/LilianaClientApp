@@ -45,6 +45,15 @@
     padding: 10px;
     font-size: 50px;
     z-index: 25;
+    transition: 1s;
+}
+
+.counter.warning {
+    background: #680000a8;
+}
+
+.counter.correct {
+    background: #006853b3;
 }
 
 @media screen and (max-width: 1000px) {

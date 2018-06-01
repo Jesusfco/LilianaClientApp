@@ -93,8 +93,10 @@ export class ConfirmSelectedComponent implements OnInit {
         };
 
         this.closePop();
-        
+
+        sessionStorage.setItem('albumSaved', '1');
         sessionStorage.setItem('request', JSON.stringify(not));
+        
       },
 
       error => sessionStorage.setItem('request', JSON.stringify(error))
