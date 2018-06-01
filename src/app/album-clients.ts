@@ -10,6 +10,7 @@ export class AlbumClients {
     public disponible: number = 0;
     public selected: number = 0;
     public date: String;
+    public status: Number;
     public created_at: String;
     public updated_at: String;
 
@@ -65,6 +66,7 @@ export class AlbumClients {
         this.img = data.img;
         this.disponible = parseInt(data.disponible);
         this.date = data.date;
+        this.status = parseInt(data.status);
 
         this.setPhotoPath();
 
