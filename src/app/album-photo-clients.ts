@@ -20,8 +20,8 @@ export class AlbumPhotoClients {
         this.album_clients_id = parseFloat(data.album_clients_id);
         this.path = data.path;
 
-        if(data.select != null)
-            this.select = data.select;
+        if(parseInt(data.select) == 1)
+            this.select = true;
         this.order = parseFloat(data.order);
 
         this.setPath();
