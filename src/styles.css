@@ -8,7 +8,7 @@ body {
 
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+    font-family: "ff-tisa-web-pro", Georgia, Times serif;
     font-weight: 400;
 }
 
@@ -17,7 +17,7 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: 'Oswald', sans-serif;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, Verdana, sans-serif;
     margin-top: 0;
     margin-bottom: 5px;
 }
@@ -184,8 +184,12 @@ select {
     margin-top: 10px;
 }
 
+button:disabled {
+    background: #dddddd;
+}
+
 .btnAccept {
-    background: lightseagreen;
+    background: #a22676;
 }
 
 .btnAccept:hover {

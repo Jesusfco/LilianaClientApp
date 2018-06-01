@@ -15,7 +15,8 @@
 
         <div *ngIf="album.selected == album.disponible && album.disponible != 0">
             <h4>¡Perfecto! ¿Desea Guardar su selección?</h4>
-            <button class="btn btnAccept">Guardar Seleccion</button>
+            <button *ngIf="!request" class="btn btnAccept" (click)="sendSelection()">Guardar Seleccion</button>
+            <button *ngIf="request" class="btn" disabled>Guardar Seleccion</button>
         </div>
 
         <div *ngIf="album.selected > album.disponible">

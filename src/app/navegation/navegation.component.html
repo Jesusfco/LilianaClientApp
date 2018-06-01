@@ -1,11 +1,24 @@
-﻿<nav>
-    <button (click)='sideNav()'>Menu</button>
+﻿<nav class="nav">
 
-    <div id="userName">
+    <div class="logo lines">
+        <img src="http://www.lilianapineda.com/images/logo/header.png">
+    </div>
 
+    <div class="links">
+
+        <div [routerLink]="['./myAlbums']" class="lines">
+            <p>Mis Albumes</p>
+        </div>
+
+        <div (click)="cerrarSesion()" class="lines">
+            <p>Cerrar Sesión</p>
+        </div>
 
     </div>
+    <!-- <button (click)='sideNav()'>Menu</button> -->
+
 </nav>
+
 
 <div class="sideNav" [@menu]='stateMenu'>
     <div style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYiLcbhsWY4HlvDpIMKzJP2OB-QG0yYopa1_lhsgA7CErzcxkG)" id="userInfSection">

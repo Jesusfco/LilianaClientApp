@@ -42,9 +42,9 @@ export class UserService {
             .toPromise();
   }
 
-  storeSelection(photos) {
+  storeSelection(data) {
     
-    return this._http.post(this.link.url + 'album/storeSelection' + this.token.getTokenUrl(), photos)
+    return this._http.post(this.link.url + 'album/storeSelection' + this.token.getTokenUrl(), data)
             .map(data => data.json())
             .toPromise();
 

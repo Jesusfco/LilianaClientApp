@@ -3,7 +3,7 @@ import { cardPop, backgroundOpacity } from '../animations';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlbumClients } from '../album-clients';
 import { AlbumPhotoClients } from '../album-photo-clients';
-
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-confirm-selected',
   templateUrl: './confirm-selected.component.html',
@@ -18,6 +18,7 @@ export class ConfirmSelectedComponent implements OnInit {
   };
 
   albumPhotosObserver: any ;
+  public request: Boolean = false;
 
   public album: AlbumClients =  new AlbumClients();
 
@@ -29,7 +30,7 @@ export class ConfirmSelectedComponent implements OnInit {
 
   }
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private _http: UserService) { 
 
     this.setAlbumPhotosObserver();
   }
@@ -77,6 +78,29 @@ export class ConfirmSelectedComponent implements OnInit {
     this.state.background = 'initial';
     this.state.card = 'initial';
     
+  }
+
+  sendSelection() {
+    this.request = true;
+    this._http.storeSelection({'photos': this.album.photos, 'album_id': this.album.id}).then(
+      data => {
+
+
+        let not = {
+          title: 'Selección de Fotos Guardada',
+          description: 'Datos cargados al servidor correctamente',
+          status: 200
+        };
+
+        this.closePop();
+        
+        sessionStorage.setItem('request', JSON.stringify(not));
+      },
+
+      error => sessionStorage.setItem('request', JSON.stringify(error))
+    ).then(
+      () => this.request = false
+    );
   }
 
 }
