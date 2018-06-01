@@ -38,6 +38,24 @@ export class PhotoViewComponent implements OnInit {
     touchClicked: 0
   };
 
+  @HostListener('document:mousedown', ['$event']) msas($event) {
+    
+    
+    if($event.button == 2) { // right click
+      return false; // do nothing!
+    }
+
+    // if($event.keyCode === 27) {
+    //   this.closePop();
+    // } else if($event.keyCode == 39 ) {
+    //   this.swipeLeft();
+    // } else if($event.keyCode == 37 ) {
+    //   this.swipeRight();
+    // } else if($event.keyCode == 76 ) { 
+    //   this.likePhoto();
+    // }
+
+  }
 
   @HostListener('document:keyup', ['$event']) sss($event) {
     
