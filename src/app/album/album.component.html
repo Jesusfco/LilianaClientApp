@@ -22,9 +22,14 @@
 
     <div class="moreOptions">
 
-        <button [routerLink]="['./confirm']" id="cancelButton" *ngIf="album.status != 3">
+        <button [routerLink]="['./confirm']" id="cancelButton" *ngIf="album.status < 3">
             <i class="material-icons">save</i>
             <span>Guardar Selección</span>
+        </button>
+
+        <button id="cancelButton" *ngIf="album.status == 4">
+            <i class="material-icons">file_download</i>
+            <span>Descargar Fotos</span>
         </button>
 
         <button [routerLink]="['./selected']" id="searchButton">

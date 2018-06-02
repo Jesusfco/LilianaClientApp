@@ -4,6 +4,7 @@ import { Storage } from '../storage';
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { useAnimation } from '@angular/animations';
+import { Url } from '../url';
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   public storage: Storage =  new Storage();
   public user: User = new User();
+  public url: Url = new Url();
 
   constructor(private _http:  UserService, private router: Router) { }
 
